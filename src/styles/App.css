@@ -1,2 +1,26 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products-container img {
+  width: 200px;
+  height: 300px;
+}
+
+.free {
+  background: black;
+  color: white;
+  margin: 10px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  font-size: 12px;
+}
