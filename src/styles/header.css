@@ -1,0 +1,16 @@
+.header-nav {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+i {
+  color: white;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background: black;
+  text-align: center;
+}

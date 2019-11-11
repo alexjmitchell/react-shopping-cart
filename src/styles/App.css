@@ -1,12 +1,22 @@
-html {box-sizing:border-box;}
-*, *::before, *::after {box-sizing:inherit;}
+html {
+  box-sizing: border-box;
+  margin: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 .container {
-  width: 1200px;
+  width: 1500px;
   margin: 0 auto;
+  display: flex;
 }
 .products-container {
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 .products-container img {
@@ -17,10 +27,26 @@ html {box-sizing:border-box;}
 .free {
   background: black;
   color: white;
-  margin: 10px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
+  margin: 0 0 10px 150px;
+  width: 85px;
   padding: 4px;
   font-size: 12px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.not-free {
+  display: none;
+}
+
+.products {
+  margin: 10px;
+}
+
+.no-installments {
+  display: none;
+}
+
+.has-installments {
+  color: #cfcfcf;
 }
