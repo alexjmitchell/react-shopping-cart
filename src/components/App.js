@@ -16,13 +16,13 @@ function Wrap() {
 }
 
 const App = () => {
-  const items = useDataHook()
-
+  const { items, shirtSize } = useDataHook()
+  console.log(shirtSize)
   return (
     <>
       <Header />
       <div className="container">
-        <SizeButtons goods={items} />
+        <SizeButtons goods={items} tShirtSize={shirtSize} />
         <DisplayProducts goods={items} />
       </div>
     </>

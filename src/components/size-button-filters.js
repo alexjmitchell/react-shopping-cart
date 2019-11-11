@@ -1,23 +1,20 @@
-import React from 'react'
-import '../styles/size-buttons.css'
+import React from "react"
+import SizeButton from "./size-button"
+import "../styles/size-buttons.css"
 
+const SizeButtons = props => {
+  const sizes = ["XS", "S", "M", "ML", "L", "XL", "XXL"]
 
+  let buttons = sizes.map((size, index) => (
+    <SizeButton key={index} size={size} />
+  ))
 
- const Sizes = (props) => {
-   return(
-     <div>
-       <h2>Sizes:</h2>
-       <div className="button-container">
-        <button className="size-button">XS</button>
-        <button className="size-button">S</button>
-        <button className="size-button">M</button>
-        <button className="size-button">ML</button>
-        <button className="size-button">L</button>
-        <button className="size-button">XL</button>
-        <button className="size-button">XXL</button>
-       </div>
-     </div>
-   )
- }
+  return (
+    <div>
+      <h2>Sizes:</h2>
+      <div className="button-container">{buttons}</div>
+    </div>
+  )
+}
 
- export default Sizes
+export default SizeButtons

@@ -5,20 +5,21 @@ import Axios from "axios"
 // Action Names/Variables -----------------------------//
 
 const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS"
-const SORT_SIZES = "SORT_SIZES"
-let size
+const SIZES = "SIZES"
+
 // Reducer ----------------------------------------//
 
 const initialState = {
-  products: []
+  products: [],
+  selectedShirtSize: "M"
 }
 
 export default function tshirtReducer(state = initialState, action) {
   switch (action.type) {
     case DISPLAY_PRODUCTS:
       return { ...state, products: action.payload }
-    case SORT_SIZES: 
-      return {...state, products: action.payload.filter(data => data.avaliableSizes === size)}
+    case SIZES:
+      return { ...state, selectedShirtSize: state }
     default:
       return state
   }
@@ -37,31 +38,31 @@ function getProductData() {
   }
 }
 
+// function getShirtSize(size) {
+//   return action => {
+//     action({
+//       type:SIZES,
+//       payload: initialState.size
+//     })
+//   }
+// }
 
-function sortBySizes(girth) {
-  girth = size
-
-  return action => {
-    Axios.get("/products").then(response => {
-      action({
-        type: SORT_SIZES,
-        payload: response.data
-      })
-    })
-  }
-}
+// function updateShirtSize(size) {
+//   return action =>
+// }
 // Custom Hook -----------------------------------//
 
 export function useDataHook() {
   const dispatch = useDispatch()
   const items = useSelector(appState => appState.tshirtReducer.products)
+  const shirtSize = useSelector(appState => appState.tshirtReducer.selectedShirtSize)
 
   useEffect(() => {
     const fetch = () => dispatch(getProductData())
     fetch()
-
-    
+    // const getSize = () => dispatch(getShirtSize())
+    // getSize()
   }, [dispatch])
 
-  return items
+  return { items, shirtSize }
 }
