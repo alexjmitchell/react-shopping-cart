@@ -1,19 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import Icon from "../lib/Icon"
 import "../styles/header.css"
+import Cart from "../components/Cart"
 
 const Header = () => {
-  const [modal, setModal] = useState(false)
-
-  const toggleModal = () => setModal().toggle()
-
   return (
-    <div className="header-nav">
-      <button value={modal} onClick={event => toggleModal()}>
+    <>
+      <div className="header-nav">
         <Icon icon="shopping-cart" id="shopping-cart" />
-        <div></div>
-      </button>
-    </div>
+        <div>
+          <Cart />
+        </div>
+      </div>
+    </>
   )
 }
 

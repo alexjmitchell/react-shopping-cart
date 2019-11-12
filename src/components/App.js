@@ -7,6 +7,7 @@ import DisplayProducts from "../components/DisplayProducts"
 import SizeButtons from "../components/size-button-filters"
 import Header from "../components/header"
 
+
 function Wrap() {
   return (
     <Provider store={store}>
@@ -16,14 +17,14 @@ function Wrap() {
 }
 
 const App = () => {
-  const { items, shirtSize } = useDataHook()
-  console.log(shirtSize)
+  const { items, shirtSize, cartItems } = useDataHook()
+
   return (
     <>
       <Header />
       <div className="container">
         <SizeButtons goods={items} tShirtSize={shirtSize} />
-        <DisplayProducts goods={items} />
+        <DisplayProducts goods={items} cartItems={cartItems}/>
       </div>
     </>
   )

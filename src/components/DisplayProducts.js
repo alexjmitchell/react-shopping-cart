@@ -1,12 +1,22 @@
 import React from "react"
-
+import { addCartItem } from "../Redux-Store/Vendors/T-shirts/Actions-Reducers"
+import { useDispatch } from "react-redux"
 
 export default function DisplayProducts(props) {
+  const dispatch = useDispatch()
+
+
+
+  console.log("cart Items ------->", props.cartItems)
+  const handleClick = (product) => {
+    dispatch(addCartItem(product))
+  }
+
   return (
     <div className="products-container">
       {props.goods.map((product, i) => (
         <div key={"product-" + i} className="products">
-          <p className={(product.isFreeShipping === true) ? "free" : "not-free"}>
+          <p className={product.isFreeShipping === true ? "free" : "not-free"}>
             Free Shipping
           </p>
           <img src={`/assets/${product.sku}_1.jpg`} alt={product.title} />
@@ -14,10 +24,16 @@ export default function DisplayProducts(props) {
           <p>
             {product.currencyFormat}&nbsp;{product.price.toFixed(2)}
           </p>
-          <p className={(product.installments === 0) ? "no-installments" : "has-installments" }>{`${product.installments} payments of ${product.currencyFormat} ${(
+          <p
+            className={
+              product.installments === 0
+                ? "no-installments"
+                : "has-installments"
+            }
+          >{`${product.installments} payments of ${product.currencyFormat} ${(
             product.price / product.installments
           ).toFixed(2)}`}</p>
-          <button>Add to Cart</button>
+          <button onClick={event => handleClick(product)}>Add to Cart</button>
         </div>
       ))}
     </div>
