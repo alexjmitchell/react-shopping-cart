@@ -8,13 +8,16 @@ const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS"
 const SIZES = "SIZES"
 const ADD_TO_CART = "cart/ADD_TO_CART"
 const DISPLAY_CART_PRODUCTS = "DISPLAY_CART_PRODUCTS"
+const TOGGLE_CART_SHOW = "cart/TOGGLE_CART_SHOW"
+
 
 // Reducer ----------------------------------------//
 
 const initialState = {
   products: [],
   selectedShirtSize: "M",
-  cartProducts: []
+  cartProducts: [],
+  cartShow: false
 }
 
 export default function tshirtReducer(state = initialState, action) {
@@ -27,6 +30,8 @@ export default function tshirtReducer(state = initialState, action) {
       return { ...state, cartProducts: action.payload }
     case ADD_TO_CART:
       return { ...state, cartProducts: [...state.cartProducts, action.payload] }
+    case TOGGLE_CART_SHOW:
+      return {...state, cartShow: action.payload}
     default:
       return state
   }
@@ -65,7 +70,8 @@ export const addCartItem = payload => {
       currencyFormat: payload.currencyFormat,
       description: payload.description,
       style: payload.style,
-      productId: payload.id
+      productId: payload.id,
+      count: 1
     }).then(response => {
       action({
         type: ADD_TO_CART,
@@ -75,6 +81,23 @@ export const addCartItem = payload => {
   }
 }
 
+export const removeCartItem = id => {
+  return dispatch => {
+    Axios.delete("/cartProducts/" + id).then(response => {
+      dispatch(getCartProductData())
+    })
+  }
+}
+
+
+export const toggleCartShow = () => {
+  return dispatch => {
+    dispatch({
+      type:TOGGLE_CART_SHOW,
+      payload: true
+    })
+  }
+}
 // Custom Hook -----------------------------------//
 
 export function useDataHook() {
@@ -86,7 +109,8 @@ export function useDataHook() {
   const cartItems = useSelector(appState => appState.tshirtReducer.cartProducts)
 
   useEffect(() => {
-    const fetch = () => dispatch(getProductData(), dispatch(getCartProductData()))
+    const fetch = () =>
+      dispatch(getProductData(), dispatch(getCartProductData()))
     fetch()
   }, [dispatch])
 

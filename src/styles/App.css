@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   margin: 0;
+  width: 100%;
 }
 *,
 *::before,
@@ -49,4 +50,21 @@ html {
 
 .has-installments {
   color: #cfcfcf;
+}
+
+.add-to-cart-button {
+  margin-top: 10px;
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+  background: black;
+  cursor: pointer;
+  color: white;
+  outline: none;
+}
+
+.add-to-cart-button:focus, .add-to-cart-button:hover {
+  background: #EABF00;
+  color: black;
+  border: 1px solid black;
 }

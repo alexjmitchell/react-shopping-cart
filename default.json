@@ -282,24 +282,59 @@
   ],
   "cartProducts": [
     {
-      "title": "Cat Tee Black T-Shirt",
-      "sku": 12064273040195392,
-      "price": 10.9,
+      "title": "Skuul",
+      "sku": 11033926921508488,
+      "price": 14,
       "currencyFormat": "$",
-      "description": "4 MSL",
-      "style": "Black with custom print",
-      "productId": 12,
+      "description": "Treino 2014",
+      "style": "Black T-Shirt with front print",
+      "productId": 15,
+      "count": 1,
       "id": 1
     },
     {
+      "title": "Sphynx Tie Dye Wine T-Shirt",
+      "sku": 10686354557628304,
+      "price": 9,
+      "currencyFormat": "$",
+      "description": "GPX Poly 1",
+      "style": "Front tie dye print",
+      "productId": 14,
+      "count": 1,
+      "id": 2
+    },
+    {
       "title": "Cat Tee Black T-Shirt",
-      "sku": 12064273040195392,
+      "sku": 8552515751438644,
       "price": 10.9,
       "currencyFormat": "$",
-      "description": "4 MSL",
-      "style": "Black with custom print",
-      "productId": 12,
-      "id": 2
+      "description": "14/15 s/nº",
+      "style": "Branco com listras pretas",
+      "productId": 0,
+      "count": 1,
+      "id": 3
+    },
+    {
+      "title": "Sphynx Tie Dye Grey T-Shirt",
+      "sku": 18644119330491310,
+      "price": 10.9,
+      "currencyFormat": "$",
+      "description": "14/15 s/nº",
+      "style": "Preta com listras brancas",
+      "productId": 1,
+      "count": 1,
+      "id": 4
+    },
+    {
+      "title": "Sphynx Tie Dye Grey T-Shirt",
+      "sku": 18644119330491310,
+      "price": 10.9,
+      "currencyFormat": "$",
+      "description": "14/15 s/nº",
+      "style": "Preta com listras brancas",
+      "productId": 1,
+      "count": 1,
+      "id": 5
     }
   ]
 }

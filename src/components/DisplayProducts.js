@@ -33,7 +33,7 @@ export default function DisplayProducts(props) {
           >{`${product.installments} payments of ${product.currencyFormat} ${(
             product.price / product.installments
           ).toFixed(2)}`}</p>
-          <button onClick={event => handleClick(product)}>Add to Cart</button>
+          <button onClick={event => handleClick(product)} className="add-to-cart-button">Add to Cart</button>
         </div>
       ))}
     </div>
