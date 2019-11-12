@@ -282,28 +282,6 @@
   ],
   "cartProducts": [
     {
-      "title": "Skuul",
-      "sku": 11033926921508488,
-      "price": 14,
-      "currencyFormat": "$",
-      "description": "Treino 2014",
-      "style": "Black T-Shirt with front print",
-      "productId": 15,
-      "count": 1,
-      "id": 1
-    },
-    {
-      "title": "Sphynx Tie Dye Wine T-Shirt",
-      "sku": 10686354557628304,
-      "price": 9,
-      "currencyFormat": "$",
-      "description": "GPX Poly 1",
-      "style": "Front tie dye print",
-      "productId": 14,
-      "count": 1,
-      "id": 2
-    },
-    {
       "title": "Cat Tee Black T-Shirt",
       "sku": 8552515751438644,
       "price": 10.9,
@@ -335,6 +313,28 @@
       "productId": 1,
       "count": 1,
       "id": 5
+    },
+    {
+      "title": "Skuul",
+      "sku": 11033926921508488,
+      "price": 14,
+      "currencyFormat": "$",
+      "description": "Treino 2014",
+      "style": "Black T-Shirt with front print",
+      "productId": 15,
+      "count": 1,
+      "id": 6
+    },
+    {
+      "title": "Short Sleeve T-Shirt",
+      "sku": 10412368723880252,
+      "price": 75,
+      "currencyFormat": "$",
+      "description": "",
+      "style": "Grey",
+      "productId": 16,
+      "count": 1,
+      "id": 7
     }
   ]
 }

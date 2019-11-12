@@ -10,7 +10,6 @@ const ADD_TO_CART = "cart/ADD_TO_CART"
 const DISPLAY_CART_PRODUCTS = "DISPLAY_CART_PRODUCTS"
 const TOGGLE_CART_SHOW = "cart/TOGGLE_CART_SHOW"
 
-
 // Reducer ----------------------------------------//
 
 const initialState = {
@@ -31,7 +30,7 @@ export default function tshirtReducer(state = initialState, action) {
     case ADD_TO_CART:
       return { ...state, cartProducts: [...state.cartProducts, action.payload] }
     case TOGGLE_CART_SHOW:
-      return {...state, cartShow: action.payload}
+      return { ...state, cartShow: action.payload }
     default:
       return state
   }
@@ -39,7 +38,7 @@ export default function tshirtReducer(state = initialState, action) {
 
 // Action Creators ------------------------//
 
-function getProductData() {
+const getProductData = () => {
   return action => {
     Axios.get("/products").then(response => {
       action({
@@ -50,7 +49,7 @@ function getProductData() {
   }
 }
 
-function getCartProductData() {
+const getCartProductData = () => {
   return action => {
     Axios.get("/cartProducts").then(response => {
       action({
@@ -89,18 +88,17 @@ export const removeCartItem = id => {
   }
 }
 
-
 export const toggleCartShow = () => {
   return dispatch => {
     dispatch({
-      type:TOGGLE_CART_SHOW,
+      type: TOGGLE_CART_SHOW,
       payload: true
     })
   }
 }
 // Custom Hook -----------------------------------//
 
-export function useDataHook() {
+export const useDataHook = () => {
   const dispatch = useDispatch()
   const items = useSelector(appState => appState.tshirtReducer.products)
   const shirtSize = useSelector(
