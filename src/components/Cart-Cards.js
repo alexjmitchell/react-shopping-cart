@@ -1,6 +1,6 @@
 import React from "react"
 import '../styles/Cart-Cards.css'
-import { removeCartItem } from '../Redux-Store/Vendors/T-shirts/Actions-Reducers'
+import { removeCartItem, useDataHook } from '../Redux-Store/Vendors/T-shirts/Actions-Reducers'
 import { useDispatch  } from 'react-redux'
 
 const Card = props => {
@@ -8,8 +8,7 @@ const Card = props => {
   const handleClick = (id) => {
     dispatch(removeCartItem(id))
   }
-  let Quantity = 0
-  let total
+  const { cartItems, total } = useDataHook()
 
   return (
     <div className="card-container">
@@ -26,6 +25,9 @@ const Card = props => {
           </div>
         </div>
       ))}
+      {/* <div>
+        {cartItems.map(product => <p>{total(product.price)}</p>)}
+      </div> */}
     </div>
   )
 }

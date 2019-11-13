@@ -282,28 +282,6 @@
   ],
   "cartProducts": [
     {
-      "title": "Cat Tee Black T-Shirt",
-      "sku": 8552515751438644,
-      "price": 10.9,
-      "currencyFormat": "$",
-      "description": "14/15 s/nº",
-      "style": "Branco com listras pretas",
-      "productId": 0,
-      "count": 1,
-      "id": 3
-    },
-    {
-      "title": "Sphynx Tie Dye Grey T-Shirt",
-      "sku": 18644119330491310,
-      "price": 10.9,
-      "currencyFormat": "$",
-      "description": "14/15 s/nº",
-      "style": "Preta com listras brancas",
-      "productId": 1,
-      "count": 1,
-      "id": 4
-    },
-    {
       "title": "Sphynx Tie Dye Grey T-Shirt",
       "sku": 18644119330491310,
       "price": 10.9,

@@ -4,11 +4,14 @@ import Axios from "axios"
 
 // Action Names/Variables -----------------------------//
 
-const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS"
-const SIZES = "SIZES"
+const DISPLAY_PRODUCTS = "products/DISPLAY_PRODUCTS"
+const SIZES = "product/SIZES"
 const ADD_TO_CART = "cart/ADD_TO_CART"
-const DISPLAY_CART_PRODUCTS = "DISPLAY_CART_PRODUCTS"
+const DISPLAY_CART_PRODUCTS = "cart/DISPLAY_CART_PRODUCTS"
 const TOGGLE_CART_SHOW = "cart/TOGGLE_CART_SHOW"
+const OPEN_CART = "cart/OPEN_CART"
+const CLOSE_CART = "cart/CLOSE_CART"
+const GET_TOTAL = "cart/GET_TOTAL"
 
 // Reducer ----------------------------------------//
 
@@ -16,7 +19,8 @@ const initialState = {
   products: [],
   selectedShirtSize: "M",
   cartProducts: [],
-  cartShow: false
+  cartShow: false,
+  total: ""
 }
 
 export default function tshirtReducer(state = initialState, action) {
@@ -29,14 +33,44 @@ export default function tshirtReducer(state = initialState, action) {
       return { ...state, cartProducts: action.payload }
     case ADD_TO_CART:
       return { ...state, cartProducts: [...state.cartProducts, action.payload] }
-    case TOGGLE_CART_SHOW:
+    case OPEN_CART:
       return { ...state, cartShow: action.payload }
+    case CLOSE_CART:
+      return { ...state, cartShow: action.payload }
+    case TOGGLE_CART_SHOW:
+      return { ...state, cartShow: !state.cartShow }
+    case GET_TOTAL:
+      return { ...state, total: action.payload }
     default:
       return state
   }
 }
 
 // Action Creators ------------------------//
+
+const getTotalPrice = prices => {
+  prices.reduce((a, b) => (a + b.price).toFixed(2), 0)
+}
+
+const toggleCart = () => {
+  return {
+    type: TOGGLE_CART_SHOW
+  }
+}
+
+const openCart = () => {
+  return {
+    type: OPEN_CART,
+    payload: true
+  }
+}
+
+const closeCart = () => {
+  return {
+    type: CLOSE_CART,
+    payload: false
+  }
+}
 
 const getProductData = () => {
   return action => {
@@ -105,6 +139,11 @@ export const useDataHook = () => {
     appState => appState.tshirtReducer.selectedShirtSize
   )
   const cartItems = useSelector(appState => appState.tshirtReducer.cartProducts)
+  const cart = useSelector(appState => appState.tshirtReducer.cartShow)
+  const open = () => dispatch(openCart())
+  const close = () => dispatch(closeCart())
+  const toggle = () => dispatch(toggleCart())
+  const total = prices => dispatch(getTotalPrice(prices))
 
   useEffect(() => {
     const fetch = () =>
@@ -112,5 +151,5 @@ export const useDataHook = () => {
     fetch()
   }, [dispatch])
 
-  return { items, shirtSize, cartItems }
+  return { items, shirtSize, cartItems, cart, close, open, toggle, total }
 }

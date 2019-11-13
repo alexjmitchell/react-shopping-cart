@@ -42,6 +42,7 @@ html {
 
 .products {
   margin: 10px;
+  text-align: center;
 }
 
 .no-installments {
@@ -63,8 +64,9 @@ html {
   outline: none;
 }
 
-.add-to-cart-button:focus, .add-to-cart-button:hover {
-  background: #EABF00;
+.add-to-cart-button:focus,
+.add-to-cart-button:hover {
+  background: #eabf00;
   color: black;
   border: 1px solid black;
 }

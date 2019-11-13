@@ -14,5 +14,6 @@ i {
   background: black;
   text-align: center;
   font-size: 30px !important;
+  cursor: pointer;
 }
 

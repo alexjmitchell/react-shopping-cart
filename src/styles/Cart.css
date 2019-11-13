@@ -7,4 +7,9 @@
   position: absolute;
   top: 65px;
   right: -177px;
+  /* display: none; */
+}
+
+.cart-show {
+  display: block;
 }
